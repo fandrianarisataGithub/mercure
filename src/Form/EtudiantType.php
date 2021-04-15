@@ -2,28 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Article;
+use App\Entity\Etudiant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class ArticleType extends AbstractType
+class EtudiantType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('content')
-            ->add('createdAt')
-            ->add('ajouter', SubmitType::class)
+            ->add('email')
+            ->add('roles')
+            ->add('password')
+            ->add('pdp')
+            ->add('niveau')
+            ->add('etablissement')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class,
+            'data_class' => Etudiant::class,
         ]);
     }
 }

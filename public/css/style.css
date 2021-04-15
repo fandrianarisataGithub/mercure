@@ -440,7 +440,25 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-menu {
     border-top: 1px solid #3a3f48;
 }
-
+.sidebar-header form{
+    border: 0.5px solid rgba(255,255,255,0.1);
+    padding: 10px;
+}
+.sidebar-header form button{
+    height: 35px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+   
+}
+.sidebar-header form label{
+    color: #fff;
+}
+.sidebar-header form input{
+    height: 35px;
+    background: #ccc;
+    font-size: 12px;
+}
 .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
 .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
     border-color: transparent;

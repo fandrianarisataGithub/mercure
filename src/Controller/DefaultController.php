@@ -41,4 +41,13 @@ class DefaultController extends AbstractController
     {   
         return $this->render("security/user_register.html.twig");
     }
+
+    /**
+     * @Route("/test_ajout_et", name="test_ajout_et")
+     */
+    public function test_ajout_et():Response
+    {   
+        return $this->render("security/test.html.twig");
+    }   
+    
 }

@@ -3,13 +3,18 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({"etudaint" = "Etudiant", "professeur" = "Professeur"})
  */
-class User implements UserInterface
+abstract class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -33,6 +38,32 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pdp;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Etablissement::class, inversedBy="admin")
+     */
+    private $etablissement;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Publication::class, mappedBy="pubicateur")
+     */
+    private $publications;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="commentateur")
+     */
+    private $commentaires;
+
+    public function __construct()
+    {
+        $this->publications = new ArrayCollection();
+        $this->commentaires = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -113,5 +144,89 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getPdp(): ?string
+    {
+        return $this->pdp;
+    }
+
+    public function setPdp(?string $pdp): self
+    {
+        $this->pdp = $pdp;
+
+        return $this;
+    }
+
+    public function getEtablissement(): ?Etablissement
+    {
+        return $this->etablissement;
+    }
+
+    public function setEtablissement(?Etablissement $etablissement): self
+    {
+        $this->etablissement = $etablissement;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Publication[]
+     */
+    public function getPublications(): Collection
+    {
+        return $this->publications;
+    }
+
+    public function addPublication(Publication $publication): self
+    {
+        if (!$this->publications->contains($publication)) {
+            $this->publications[] = $publication;
+            $publication->setPubicateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublication(Publication $publication): self
+    {
+        if ($this->publications->removeElement($publication)) {
+            // set the owning side to null (unless already changed)
+            if ($publication->getPubicateur() === $this) {
+                $publication->setPubicateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commentaire[]
+     */
+    public function getCommentaires(): Collection
+    {
+        return $this->commentaires;
+    }
+
+    public function addCommentaire(Commentaire $commentaire): self
+    {
+        if (!$this->commentaires->contains($commentaire)) {
+            $this->commentaires[] = $commentaire;
+            $commentaire->setCommentateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentaire(Commentaire $commentaire): self
+    {
+        if ($this->commentaires->removeElement($commentaire)) {
+            // set the owning side to null (unless already changed)
+            if ($commentaire->getCommentateur() === $this) {
+                $commentaire->setCommentateur(null);
+            }
+        }
+
+        return $this;
     }
 }
