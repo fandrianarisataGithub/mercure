@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					{# login  #}
-					<div class="sidebar-header">
+					{# <div class="sidebar-header">
 						<form action="">
 							<div class="form-group">
 								<label for="_email">Adresse email</label>
@@ -49,7 +49,7 @@
 								<button class="btn btn-primary"><span>Se connecter</span></button>
 							</div>
 						</form>
-					</div>
+					</div> #}
 					{# /login #}
 					<div class="sidebar-header">
 						<div class="user-pic">
@@ -87,19 +87,6 @@
 							</li>
 							<li class="sidebar-dropdown">
 								<a href="#">
-									<i class="fa fa-institution"></i>
-									<span>Etablissement</span>
-								</a>
-								<div class="sidebar-submenu">
-									<ul>
-										<li><a href="#">Université</a></li>
-										<li><a href="#">Lycée</a></li>
-										<li><a href="#">Collège</a></li>
-									</ul>
-								</div>
-							</li>
-							<li class="sidebar-dropdown">
-								<a href="#">
 									<i class="fa fa-file-text-o"></i>
 									<span>Publication</span>
 									<span class="badge badge-pill badge-danger">3</span>
@@ -111,39 +98,68 @@
 									</ul>
 								</div>
 							</li>
-							<li class="">
+							<li class="sidebar-dropdown">
 								<a href="#">
 									<i class="fas fa-user-graduate"></i>
 									<span>Etudiant</span>
 								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li><a href="#">Ajouter</a></li>
+										<li><a href="#">Lister</a></li>
+									</ul>
+								</div>
 							</li>
-							<li class="">
+							<li class="sidebar-dropdown">
 								<a href="#">
 									<i class="fas fa-chalkboard-teacher"></i>
 									<span>Professeur</span>
 								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li><a href="#">Ajouter</a></li>
+										<li><a href="#">Lister</a></li>
+									</ul>
+								</div>
 							</li>
 							<li class="header-menu">
 								<span>Extra</span>
 							</li>
-							<li>
+							<li class="sidebar-dropdown">
 								<a href="#">
 									<i class="fa fa-book"></i>
 									<span>Documentation</span>
-									<span class="badge badge-pill badge-primary">Beta</span>
 								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li><a href="#">Ajouter</a></li>
+										<li><a href="#">Lister</a></li>
+									</ul>
+								</div>
 							</li>
-							<li>
+							<li class="sidebar-dropdown">
 								<a href="#">
 									<i class="fa fa-calendar"></i>
 									<span>Evènement</span>
 								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li><a href="#">Ajouter</a></li>
+										<li><a href="#">Lister</a></li>
+									</ul>
+								</div>
 							</li>
-							<li>
+							<li class="sidebar-dropdown">
 								<a href="#">
 									<i class="fa fa-folder"></i>
 									<span>Forum</span>
 								</a>
+								<div class="sidebar-submenu">
+									<ul>
+										<li><a href="#">Ajouter</a></li>
+										<li><a href="#">Lister</a></li>
+									</ul>
+								</div>
 							</li>
                             <li>
 								<a href="{{ path('app_logout') }}">

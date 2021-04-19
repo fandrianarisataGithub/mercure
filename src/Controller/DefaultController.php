@@ -48,6 +48,13 @@ class DefaultController extends AbstractController
     public function test_ajout_et():Response
     {   
         return $this->render("security/test.html.twig");   
+    } 
+    /**
+     * @Route("/front", name="front")
+     */
+    public function front():Response
+    {   
+        return $this->render("front/front.html.twig");   
     }   
     
 }
