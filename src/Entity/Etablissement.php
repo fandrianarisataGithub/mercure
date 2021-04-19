@@ -39,9 +39,15 @@ class Etablissement
      */
     private $admin;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Filiere::class, mappedBy="etablissement")
+     */
+    private $filieres;
+
     public function __construct()
     {
         $this->admin = new ArrayCollection();
+        $this->filieres = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -110,6 +116,33 @@ class Etablissement
             if ($admin->getEtablissement() === $this) {
                 $admin->setEtablissement(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Filiere[]
+     */
+    public function getFilieres(): Collection
+    {
+        return $this->filieres;
+    }
+
+    public function addFiliere(Filiere $filiere): self
+    {
+        if (!$this->filieres->contains($filiere)) {
+            $this->filieres[] = $filiere;
+            $filiere->addEtablissement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFiliere(Filiere $filiere): self
+    {
+        if ($this->filieres->removeElement($filiere)) {
+            $filiere->removeEtablissement($this);
         }
 
         return $this;
