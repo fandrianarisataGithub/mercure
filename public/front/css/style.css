@@ -140,7 +140,10 @@ h1, h2, h3, h4, h5,
 
 .site-footer {
   padding: 4em 0;
-  background: #333333; }
+  background: #333333; 
+  position: absolute;
+  min-width: 100%;
+}
   @media (min-width: 768px) {
     .site-footer {
       padding: 8em 0; } }
@@ -295,14 +298,24 @@ h1, h2, h3, h4, h5,
 .site-navbar {
   margin-bottom: 0px;
   z-index: 1999;
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 100%;
-  border-radius: 4px; }
+  border-radius: 4px; 
+}
+
+header.shrink{
+  background: rgba(9,116,251,0.8);
+  min-width: 100%;
+  display: block !important;
+  border-radius: 0;
+  top: 0px;
+}
+
   @media (max-width: 767.98px) {
     .site-navbar {
       top: 0; } }

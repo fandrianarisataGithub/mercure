@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class DefaultController extends AbstractController
 {   
@@ -19,12 +20,20 @@ class DefaultController extends AbstractController
         $this->em = $em;
     }
     /**
-     * @Route("/", name="first")
+     * @Route("/", name="home")
      */
-    public function first():RedirectResponse
-    {   
-        return $this->redirectToRoute("app_login");
+    public function first():Response
+    {
+        return $this->render("front/home.html.twig");  
     }
+    /**
+     * @Route("/articles", name="articles")
+     */
+    public function articles(): Response
+    {
+        return $this->render("front/articles.html.twig");
+    }
+
 
     /**
      * @Route("/chat", name="chat")
@@ -49,12 +58,6 @@ class DefaultController extends AbstractController
     {   
         return $this->render("security/test.html.twig");   
     } 
-    /**
-     * @Route("/front", name="front")
-     */
-    public function front():Response
-    {   
-        return $this->render("front/front.html.twig");   
-    }   
+     
     
 }
