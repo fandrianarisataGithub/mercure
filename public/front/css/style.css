@@ -1887,3 +1887,55 @@ figure figcaption {
         .comment-list li .comment-body .reply:hover {
           color: #000;
           background: #e3e3e3; }
+.panel-body{
+  border-top: 1px solid rgba(0,0,0,0.2);
+  margin-top: 15px;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+}
+.panel-title{
+  margin-top: 15px !important;
+  font-size: 17px !important;
+}
+.panel-body .action a.btn{
+  background: transparent;
+  border: none;
+}
+.panel-body .action a.btn span{
+  color: #4d4d4d;
+  font-size: 13px;
+}
+.liste_response{
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.btn_show_more{
+  float: right;
+}
+.image_article{
+   margin: auto;
+  display: block;
+  margin-bottom: 15px;
+}
+.image_article img{
+  margin: auto;
+  display: block;
+  width: 80%;
+  margin-top: 15px;
+}
+.content_article p{
+  font-size: 12px;
+}
+.btn_show_more{
+  width: 150px;
+  height: 30px;
+  padding: 2px;
+  font-size: 14px;
+  border-radius: 30px;
+}

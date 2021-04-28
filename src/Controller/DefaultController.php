@@ -34,6 +34,13 @@ class DefaultController extends AbstractController
         return $this->render("front/articles.html.twig");
     }
 
+    /**
+     * @Route("/article/{id}", name="article")
+     */
+    public function article(): Response
+    {
+        return $this->render("front/show_article.html.twig");
+    }
 
     /**
      * @Route("/chat", name="chat")
