@@ -1939,3 +1939,47 @@ figure figcaption {
   font-size: 14px;
   border-radius: 30px;
 }
+#div_image_article{
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 250px;
+  height: 250px;
+}
+#div_image_article input{
+  background: green;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  top:200px; 
+  left: 200px;
+  z-index: 1;
+  opacity: 0;
+}
+#div_image_article > div{
+  background: #ccc;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 150px;
+  left: 200px;
+  z-index: auto;
+  
+}
+#div_image_article > div span{
+  color: #000;
+}
+#input_video_article{
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
